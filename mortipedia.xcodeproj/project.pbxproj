@@ -10,7 +10,6 @@
 		783C9AD72BC136BE007A4E65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C9AD62BC136BE007A4E65 /* AppDelegate.swift */; };
 		783C9AD92BC136BE007A4E65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C9AD82BC136BE007A4E65 /* SceneDelegate.swift */; };
 		783C9ADB2BC136BE007A4E65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C9ADA2BC136BE007A4E65 /* ViewController.swift */; };
-		783C9ADE2BC136BE007A4E65 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 783C9ADD2BC136BE007A4E65 /* Base */; };
 		783C9AE02BC136BE007A4E65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 783C9ADF2BC136BE007A4E65 /* Assets.xcassets */; };
 		783C9AE32BC136BE007A4E65 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 783C9AE22BC136BE007A4E65 /* Base */; };
 /* End PBXBuildFile section */
@@ -20,7 +19,6 @@
 		783C9AD62BC136BE007A4E65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		783C9AD82BC136BE007A4E65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		783C9ADA2BC136BE007A4E65 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		783C9ADD2BC136BE007A4E65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		783C9ADF2BC136BE007A4E65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		783C9AE22BC136BE007A4E65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		783C9AE42BC136BE007A4E65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,7 +57,6 @@
 				783C9AD62BC136BE007A4E65 /* AppDelegate.swift */,
 				783C9AD82BC136BE007A4E65 /* SceneDelegate.swift */,
 				783C9ADA2BC136BE007A4E65 /* ViewController.swift */,
-				783C9ADC2BC136BE007A4E65 /* Main.storyboard */,
 				783C9ADF2BC136BE007A4E65 /* Assets.xcassets */,
 				783C9AE12BC136BE007A4E65 /* LaunchScreen.storyboard */,
 				783C9AE42BC136BE007A4E65 /* Info.plist */,
@@ -127,7 +124,6 @@
 			files = (
 				783C9AE02BC136BE007A4E65 /* Assets.xcassets in Resources */,
 				783C9AE32BC136BE007A4E65 /* Base in Resources */,
-				783C9ADE2BC136BE007A4E65 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,14 +143,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		783C9ADC2BC136BE007A4E65 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				783C9ADD2BC136BE007A4E65 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		783C9AE12BC136BE007A4E65 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -295,11 +283,13 @@
 				DEVELOPMENT_TEAM = 7XY3KDN4D6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mortipedia/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Mortipedia;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,9 +297,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hoon.mortipedia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -323,11 +317,13 @@
 				DEVELOPMENT_TEAM = 7XY3KDN4D6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mortipedia/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Mortipedia;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -335,9 +331,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hoon.mortipedia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
