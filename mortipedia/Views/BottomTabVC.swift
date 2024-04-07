@@ -1,11 +1,9 @@
 import UIKit
 
-class ViewController: UIViewController {
+class BottomTabVC: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-
 }
 

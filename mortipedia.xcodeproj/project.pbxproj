@@ -9,19 +9,25 @@
 /* Begin PBXBuildFile section */
 		783C9AD72BC136BE007A4E65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C9AD62BC136BE007A4E65 /* AppDelegate.swift */; };
 		783C9AD92BC136BE007A4E65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C9AD82BC136BE007A4E65 /* SceneDelegate.swift */; };
-		783C9ADB2BC136BE007A4E65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C9ADA2BC136BE007A4E65 /* ViewController.swift */; };
+		783C9ADB2BC136BE007A4E65 /* BottomTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C9ADA2BC136BE007A4E65 /* BottomTabVC.swift */; };
 		783C9AE02BC136BE007A4E65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 783C9ADF2BC136BE007A4E65 /* Assets.xcassets */; };
 		783C9AE32BC136BE007A4E65 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 783C9AE22BC136BE007A4E65 /* Base */; };
+		788DD0422BC2EACA00091D7E /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DD0412BC2EACA00091D7E /* Character.swift */; };
+		788DD0442BC2EB5E00091D7E /* CharatersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DD0432BC2EB5E00091D7E /* CharatersVC.swift */; };
+		788DD0462BC2EB6D00091D7E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DD0452BC2EB6D00091D7E /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		783C9AD32BC136BE007A4E65 /* mortipedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mortipedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		783C9AD62BC136BE007A4E65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		783C9AD82BC136BE007A4E65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		783C9ADA2BC136BE007A4E65 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		783C9ADA2BC136BE007A4E65 /* BottomTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabVC.swift; sourceTree = "<group>"; };
 		783C9ADF2BC136BE007A4E65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		783C9AE22BC136BE007A4E65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		783C9AE42BC136BE007A4E65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		788DD0412BC2EACA00091D7E /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		788DD0432BC2EB5E00091D7E /* CharatersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharatersVC.swift; sourceTree = "<group>"; };
+		788DD0452BC2EB6D00091D7E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,57 @@
 		783C9AD52BC136BE007A4E65 /* mortipedia */ = {
 			isa = PBXGroup;
 			children = (
+				788DD0402BC2E97B00091D7E /* Services */,
+				788DD03F2BC2E97200091D7E /* ViewModels */,
+				788DD03E2BC2E96A00091D7E /* Models */,
+				788DD03D2BC2E95300091D7E /* Views */,
+				788DD03C2BC2E92600091D7E /* Resources */,
+			);
+			path = mortipedia;
+			sourceTree = "<group>";
+		};
+		788DD03C2BC2E92600091D7E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				783C9AD62BC136BE007A4E65 /* AppDelegate.swift */,
 				783C9AD82BC136BE007A4E65 /* SceneDelegate.swift */,
-				783C9ADA2BC136BE007A4E65 /* ViewController.swift */,
 				783C9ADF2BC136BE007A4E65 /* Assets.xcassets */,
 				783C9AE12BC136BE007A4E65 /* LaunchScreen.storyboard */,
 				783C9AE42BC136BE007A4E65 /* Info.plist */,
 			);
-			path = mortipedia;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		788DD03D2BC2E95300091D7E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				783C9ADA2BC136BE007A4E65 /* BottomTabVC.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		788DD03E2BC2E96A00091D7E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				788DD0412BC2EACA00091D7E /* Character.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		788DD03F2BC2E97200091D7E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				788DD0432BC2EB5E00091D7E /* CharatersVC.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		788DD0402BC2E97B00091D7E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				788DD0452BC2EB6D00091D7E /* NetworkService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,9 +183,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				783C9ADB2BC136BE007A4E65 /* ViewController.swift in Sources */,
+				783C9ADB2BC136BE007A4E65 /* BottomTabVC.swift in Sources */,
 				783C9AD72BC136BE007A4E65 /* AppDelegate.swift in Sources */,
+				788DD0442BC2EB5E00091D7E /* CharatersVC.swift in Sources */,
 				783C9AD92BC136BE007A4E65 /* SceneDelegate.swift in Sources */,
+				788DD0462BC2EB6D00091D7E /* NetworkService.swift in Sources */,
+				788DD0422BC2EACA00091D7E /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,7 +334,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7XY3KDN4D6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = mortipedia/Info.plist;
+				INFOPLIST_FILE = mortipedia/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Mortipedia;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -316,7 +368,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7XY3KDN4D6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = mortipedia/Info.plist;
+				INFOPLIST_FILE = mortipedia/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Mortipedia;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
