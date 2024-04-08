@@ -8,6 +8,7 @@ class BottomTabVC: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tabBar.tintColor = .white
         configureTabs()
     }
     
