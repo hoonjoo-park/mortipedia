@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60AEEE46A4DEF87882399D1D /* Pods_mortipedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E362C9195D62C087DFD9A2F0 /* Pods_mortipedia.framework */; };
 		783C9AD72BC136BE007A4E65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C9AD62BC136BE007A4E65 /* AppDelegate.swift */; };
 		783C9AD92BC136BE007A4E65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C9AD82BC136BE007A4E65 /* SceneDelegate.swift */; };
 		783C9ADB2BC136BE007A4E65 /* BottomTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C9ADA2BC136BE007A4E65 /* BottomTabVC.swift */; };
@@ -34,6 +35,9 @@
 		788DD0412BC2EACA00091D7E /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		788DD0432BC2EB5E00091D7E /* CharatersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharatersVC.swift; sourceTree = "<group>"; };
 		788DD0452BC2EB6D00091D7E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		A89313DEF9BAF0C2EA178CFF /* Pods-mortipedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mortipedia.debug.xcconfig"; path = "Target Support Files/Pods-mortipedia/Pods-mortipedia.debug.xcconfig"; sourceTree = "<group>"; };
+		A8C62269EE7AB385594CD56A /* Pods-mortipedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mortipedia.release.xcconfig"; path = "Target Support Files/Pods-mortipedia/Pods-mortipedia.release.xcconfig"; sourceTree = "<group>"; };
+		E362C9195D62C087DFD9A2F0 /* Pods_mortipedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mortipedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,17 +45,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60AEEE46A4DEF87882399D1D /* Pods_mortipedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		121264CCD0975715E54C8BD0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A89313DEF9BAF0C2EA178CFF /* Pods-mortipedia.debug.xcconfig */,
+				A8C62269EE7AB385594CD56A /* Pods-mortipedia.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		783C9ACA2BC136BE007A4E65 = {
 			isa = PBXGroup;
 			children = (
 				783C9AD52BC136BE007A4E65 /* mortipedia */,
 				783C9AD42BC136BE007A4E65 /* Products */,
+				121264CCD0975715E54C8BD0 /* Pods */,
+				FDBAC7EF5DA9E7779286F279 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,6 +162,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		FDBAC7EF5DA9E7779286F279 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E362C9195D62C087DFD9A2F0 /* Pods_mortipedia.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,9 +177,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 783C9AE72BC136BE007A4E65 /* Build configuration list for PBXNativeTarget "mortipedia" */;
 			buildPhases = (
+				EAD85AC3E9A344F596B8A8F5 /* [CP] Check Pods Manifest.lock */,
 				783C9ACF2BC136BE007A4E65 /* Sources */,
 				783C9AD02BC136BE007A4E65 /* Frameworks */,
 				783C9AD12BC136BE007A4E65 /* Resources */,
+				FEE292D2268F01B5CBE3465D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -210,6 +236,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EAD85AC3E9A344F596B8A8F5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mortipedia-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FEE292D2268F01B5CBE3465D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mortipedia/Pods-mortipedia-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mortipedia/Pods-mortipedia-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mortipedia/Pods-mortipedia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		783C9ACF2BC136BE007A4E65 /* Sources */ = {
@@ -279,7 +347,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -342,7 +410,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -363,6 +431,7 @@
 		};
 		783C9AE82BC136BE007A4E65 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A89313DEF9BAF0C2EA178CFF /* Pods-mortipedia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -397,6 +466,7 @@
 		};
 		783C9AE92BC136BE007A4E65 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8C62269EE7AB385594CD56A /* Pods-mortipedia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
