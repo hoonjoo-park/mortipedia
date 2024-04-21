@@ -1,8 +1,5 @@
-//
-//  Constants.swift
-//  mortipedia
-//
-//  Created by Hoonjoo Park on 4/21/24.
-//
-
 import Foundation
+
+enum UserDefaultKeys {
+    static let theme = "user-theme-preference"
+}

@@ -19,6 +19,10 @@
 		788DD0422BC2EACA00091D7E /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DD0412BC2EACA00091D7E /* Character.swift */; };
 		788DD0442BC2EB5E00091D7E /* CharatersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DD0432BC2EB5E00091D7E /* CharatersVC.swift */; };
 		788DD0462BC2EB6D00091D7E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DD0452BC2EB6D00091D7E /* NetworkService.swift */; };
+		78C2BD722BD51B1500042E38 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C2BD712BD51B1500042E38 /* Colors.swift */; };
+		78C2BD742BD5222B00042E38 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C2BD732BD5222B00042E38 /* Theme.swift */; };
+		78C2BD762BD5228700042E38 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C2BD752BD5228700042E38 /* Constants.swift */; };
+		78C2BD782BD570A200042E38 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C2BD772BD570A200042E38 /* UIColor+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,10 @@
 		788DD0412BC2EACA00091D7E /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		788DD0432BC2EB5E00091D7E /* CharatersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharatersVC.swift; sourceTree = "<group>"; };
 		788DD0452BC2EB6D00091D7E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		78C2BD712BD51B1500042E38 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		78C2BD732BD5222B00042E38 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		78C2BD752BD5228700042E38 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		78C2BD772BD570A200042E38 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		A89313DEF9BAF0C2EA178CFF /* Pods-mortipedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mortipedia.debug.xcconfig"; path = "Target Support Files/Pods-mortipedia/Pods-mortipedia.debug.xcconfig"; sourceTree = "<group>"; };
 		A8C62269EE7AB385594CD56A /* Pods-mortipedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mortipedia.release.xcconfig"; path = "Target Support Files/Pods-mortipedia/Pods-mortipedia.release.xcconfig"; sourceTree = "<group>"; };
 		E362C9195D62C087DFD9A2F0 /* Pods_mortipedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mortipedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +94,7 @@
 				788DD03F2BC2E97200091D7E /* ViewModels */,
 				788DD03E2BC2E96A00091D7E /* Models */,
 				788DD03D2BC2E95300091D7E /* Views */,
+				78C2BD702BD51AED00042E38 /* Utils */,
 				788DD03C2BC2E92600091D7E /* Resources */,
 			);
 			path = mortipedia;
@@ -160,6 +169,17 @@
 				788DD0452BC2EB6D00091D7E /* NetworkService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		78C2BD702BD51AED00042E38 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				78C2BD732BD5222B00042E38 /* Theme.swift */,
+				78C2BD712BD51B1500042E38 /* Colors.swift */,
+				78C2BD752BD5228700042E38 /* Constants.swift */,
+				78C2BD772BD570A200042E38 /* UIColor+Ext.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		FDBAC7EF5DA9E7779286F279 /* Frameworks */ = {
@@ -285,14 +305,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				7876F2402BC4518800677619 /* EpisodesVC.swift in Sources */,
+				78C2BD722BD51B1500042E38 /* Colors.swift in Sources */,
 				783C9ADB2BC136BE007A4E65 /* BottomTabVC.swift in Sources */,
 				783C9AD72BC136BE007A4E65 /* AppDelegate.swift in Sources */,
+				78C2BD742BD5222B00042E38 /* Theme.swift in Sources */,
 				788DD0442BC2EB5E00091D7E /* CharatersVC.swift in Sources */,
+				78C2BD782BD570A200042E38 /* UIColor+Ext.swift in Sources */,
 				783C9AD92BC136BE007A4E65 /* SceneDelegate.swift in Sources */,
 				788DD0462BC2EB6D00091D7E /* NetworkService.swift in Sources */,
 				788DD0422BC2EACA00091D7E /* Character.swift in Sources */,
 				7876F23D2BC4516700677619 /* CharactersVC.swift in Sources */,
 				7876F2432BC451A100677619 /* SettingsVC.swift in Sources */,
+				78C2BD762BD5228700042E38 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

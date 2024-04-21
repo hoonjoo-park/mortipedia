@@ -25,4 +25,3 @@ class BottomTabVC: UITabBarController {
         viewControllers = [charactersVC, episodesVC, settingsVC].map { $0 }
     }
 }
-
