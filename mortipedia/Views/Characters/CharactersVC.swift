@@ -11,5 +11,7 @@ class CharactersVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = Colors.background
     }
 }

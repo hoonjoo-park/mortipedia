@@ -8,8 +8,8 @@ class BottomTabVC: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar.tintColor = .white
         configureTabs()
+        configureTabStyles()
     }
     
     private func configureTabs() {
@@ -23,5 +23,11 @@ class BottomTabVC: UITabBarController {
         settingsVC.tabBarItem = UITabBarItem(title: "Settings", image: settingIcon, selectedImage: settingIcon)
         
         viewControllers = [charactersVC, episodesVC, settingsVC].map { $0 }
+    }
+    
+    private func configureTabStyles() {
+        tabBar.tintColor = Colors.text
+        tabBar.unselectedItemTintColor = Colors.gray2
+        tabBar.backgroundColor = Colors.gray4
     }
 }
