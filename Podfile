@@ -8,5 +8,7 @@ target 'mortipedia' do
   # Pods for mortipedia
   pod 'FlexLayout'
   pod 'PinLayout'
+  pod 'RxAlamofire'
+
 
 end
