@@ -9,8 +9,10 @@ class CharactersVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.isHidden = true
+        
         configureVC()
-        configureSubViews()
+        configureUI()
     }
     
     
@@ -20,11 +22,12 @@ class CharactersVC: UIViewController {
     }
     
     
-    private func configureSubViews() {
+    private func configureUI() {
         rootFlexContainer.flex.direction(.column).define { flex in
             flex.addItem(headerView)
         }
     }
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

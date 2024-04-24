@@ -22,7 +22,7 @@ class BottomTabVC: UITabBarController {
         let settingsVC = SettingsVC()
         settingsVC.tabBarItem = UITabBarItem(title: "Settings", image: settingIcon, selectedImage: settingIcon)
         
-        viewControllers = [charactersVC, episodesVC, settingsVC].map { $0 }
+        viewControllers = [charactersVC, episodesVC, settingsVC].map { UINavigationController(rootViewController: $0) }
     }
     
     private func configureTabStyles() {

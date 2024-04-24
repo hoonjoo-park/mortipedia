@@ -1,10 +1,3 @@
-//
-//  SettingsVC.swift
-//  mortipedia
-//
-//  Created by Hoonjoo Park on 4/9/24.
-//
-
 import UIKit
 
 class SettingsVC: UIViewController {
@@ -13,5 +6,7 @@ class SettingsVC: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = Colors.background
+        navigationItem.title = "Settings"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }

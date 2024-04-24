@@ -1,10 +1,3 @@
-//
-//  EpisodesVC.swift
-//  mortipedia
-//
-//  Created by Hoonjoo Park on 4/9/24.
-//
-
 import UIKit
 
 class EpisodesVC: UIViewController {
@@ -13,5 +6,7 @@ class EpisodesVC: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = Colors.background
+        navigationItem.title = "Episodes"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
