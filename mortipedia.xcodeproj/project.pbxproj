@@ -16,6 +16,9 @@
 		7876F23D2BC4516700677619 /* CharactersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876F23C2BC4516700677619 /* CharactersVC.swift */; };
 		7876F2402BC4518800677619 /* EpisodesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876F23F2BC4518800677619 /* EpisodesVC.swift */; };
 		7876F2432BC451A100677619 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876F2422BC451A100677619 /* SettingsVC.swift */; };
+		788D91022BD93BC400342B89 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788D91012BD93BC400342B89 /* Profile.swift */; };
+		788D91042BD942B500342B89 /* CharacterHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788D91032BD942B500342B89 /* CharacterHeader.swift */; };
+		788D91072BD957A000342B89 /* MortiLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788D91062BD957A000342B89 /* MortiLabel.swift */; };
 		788DD0422BC2EACA00091D7E /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DD0412BC2EACA00091D7E /* Character.swift */; };
 		788DD0442BC2EB5E00091D7E /* CharatersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DD0432BC2EB5E00091D7E /* CharatersVC.swift */; };
 		788DD0462BC2EB6D00091D7E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DD0452BC2EB6D00091D7E /* NetworkService.swift */; };
@@ -36,6 +39,9 @@
 		7876F23C2BC4516700677619 /* CharactersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersVC.swift; sourceTree = "<group>"; };
 		7876F23F2BC4518800677619 /* EpisodesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesVC.swift; sourceTree = "<group>"; };
 		7876F2422BC451A100677619 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		788D91012BD93BC400342B89 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		788D91032BD942B500342B89 /* CharacterHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterHeader.swift; sourceTree = "<group>"; };
+		788D91062BD957A000342B89 /* MortiLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortiLabel.swift; sourceTree = "<group>"; };
 		788DD0412BC2EACA00091D7E /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		788DD0432BC2EB5E00091D7E /* CharatersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharatersVC.swift; sourceTree = "<group>"; };
 		788DD0452BC2EB6D00091D7E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -104,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				7876F23C2BC4516700677619 /* CharactersVC.swift */,
+				788D91032BD942B500342B89 /* CharacterHeader.swift */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -124,6 +131,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		788D91052BD9576700342B89 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				788D91062BD957A000342B89 /* MortiLabel.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		788DD03C2BC2E92600091D7E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +154,7 @@
 		788DD03D2BC2E95300091D7E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				788D91052BD9576700342B89 /* Extensions */,
 				7876F2412BC4519500677619 /* Settings */,
 				7876F23E2BC4517600677619 /* Episodes */,
 				7876F23B2BC4515400677619 /* Characters */,
@@ -178,6 +194,7 @@
 				78C2BD712BD51B1500042E38 /* Colors.swift */,
 				78C2BD752BD5228700042E38 /* Constants.swift */,
 				78C2BD772BD570A200042E38 /* UIColor+Ext.swift */,
+				788D91012BD93BC400342B89 /* Profile.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -307,7 +324,10 @@
 				7876F2402BC4518800677619 /* EpisodesVC.swift in Sources */,
 				78C2BD722BD51B1500042E38 /* Colors.swift in Sources */,
 				783C9ADB2BC136BE007A4E65 /* BottomTabVC.swift in Sources */,
+				788D91022BD93BC400342B89 /* Profile.swift in Sources */,
+				788D91042BD942B500342B89 /* CharacterHeader.swift in Sources */,
 				783C9AD72BC136BE007A4E65 /* AppDelegate.swift in Sources */,
+				788D91072BD957A000342B89 /* MortiLabel.swift in Sources */,
 				78C2BD742BD5222B00042E38 /* Theme.swift in Sources */,
 				788DD0442BC2EB5E00091D7E /* CharatersVC.swift in Sources */,
 				78C2BD782BD570A200042E38 /* UIColor+Ext.swift in Sources */,
