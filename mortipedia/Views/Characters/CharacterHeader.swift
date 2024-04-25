@@ -35,7 +35,9 @@ class CharacterHeader: UIView {
     private func configureFlexLayout() {
         rootFlexContainer.flex.direction(.row).paddingVertical(20).paddingHorizontal(25).define { flex in
             flex.addItem().direction(.row).gap(15).grow(1).define { flex in
-                flex.addItem(profileImageView).width(45).aspectRatio(of: profileImageView)
+                flex.addItem().size(45).justifyContent(.center).alignItems(.center).cornerRadius(22.5).backgroundColor(Colors.accent).define { flex in
+                    flex.addItem(profileImageView).width(30).aspectRatio(of: profileImageView)
+                }
                 flex.addItem(title)
             }
             
