@@ -9,14 +9,14 @@ class CharactersVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.isHidden = true
-        
         configureVC()
         configureUI()
     }
     
     
     private func configureVC() {
+        navigationController?.navigationBar.isHidden = true
+        
         view.addSubview(rootFlexContainer)
         view.backgroundColor = Colors.background
     }
@@ -32,7 +32,7 @@ class CharactersVC: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        rootFlexContainer.pin.all()
+        rootFlexContainer.pin.all(view.safeAreaInsets)
         rootFlexContainer.flex.layout()
     }
 }
