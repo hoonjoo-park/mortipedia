@@ -16,6 +16,7 @@ class CharactersVC: UIViewController {
     
     private func configureVC() {
         navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isUserInteractionEnabled = false
         
         view.addSubview(rootFlexContainer)
         view.backgroundColor = Colors.background
