@@ -10,20 +10,17 @@ class NetworkManager {
     
     private init() {}
     
-    func getCharacters() {
+    func getCharacters() -> Observable<[Character]> {
         let url = baseURL + "/character"
-        RxAlamofire.data(.get, url)
-            .map { [weak self] data -> CharacterResponse? in
-                guard let self = self else { return nil }
-                
-                let response = try? self.decoder.decode(CharacterResponse.self, from: data)
-                return response
+        return RxAlamofire.data(.get, url).map { [weak self] data -> [Character] in
+            guard let self = self else { return [] }
+            
+            do {
+                let response = try self.decoder.decode(CharacterResponse.self, from: data)
+                return response.results
+            } catch {
+                return []
             }
-            .subscribe(onNext: { response in
-                guard let response = response else { return }
-                
-                print(response.results)
-            })
-            .disposed(by: disposeBag)
+        }
     }
 }
