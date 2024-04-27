@@ -12,8 +12,18 @@ class NetworkManager {
     
     func getCharacters() {
         let url = baseURL + "/character"
-        RxAlamofire.json(.get, url)
-            .subscribe(onNext: { print($0) })
+        RxAlamofire.data(.get, url)
+            .map { [weak self] data -> CharacterResponse? in
+                guard let self = self else { return nil }
+                
+                let response = try? self.decoder.decode(CharacterResponse.self, from: data)
+                return response
+            }
+            .subscribe(onNext: { response in
+                guard let response = response else { return }
+                
+                print(response.results)
+            })
             .disposed(by: disposeBag)
     }
 }
