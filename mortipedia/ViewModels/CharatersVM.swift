@@ -2,6 +2,7 @@ import Foundation
 import RxSwift
 
 class CharacterVM {
+    static let shared = CharacterVM()
     private let disposeBag = DisposeBag()
     
     private let charactersSubject = BehaviorSubject<[Character?]>(value: [])

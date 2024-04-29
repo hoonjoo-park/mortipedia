@@ -5,9 +5,12 @@ import PinLayout
 class CharactersVC: UIViewController {
     let rootFlexContainer = UIView()
     let headerView = CharacterHeader()
+    let characterVM = CharacterVM.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        characterVM.getCharacters()
         
         configureVC()
         configureUI()
