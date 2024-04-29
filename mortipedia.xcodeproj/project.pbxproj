@@ -22,6 +22,8 @@
 		788DD0422BC2EACA00091D7E /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DD0412BC2EACA00091D7E /* Character.swift */; };
 		788DD0442BC2EB5E00091D7E /* CharatersVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DD0432BC2EB5E00091D7E /* CharatersVM.swift */; };
 		788DD0462BC2EB6D00091D7E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DD0452BC2EB6D00091D7E /* NetworkService.swift */; };
+		788FFD722BE0097F002C9215 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788FFD712BE0097F002C9215 /* UIHelper.swift */; };
+		788FFD742BE0105F002C9215 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788FFD732BE0105F002C9215 /* CharacterCell.swift */; };
 		78C2BD722BD51B1500042E38 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C2BD712BD51B1500042E38 /* Colors.swift */; };
 		78C2BD742BD5222B00042E38 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C2BD732BD5222B00042E38 /* Theme.swift */; };
 		78C2BD762BD5228700042E38 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C2BD752BD5228700042E38 /* Constants.swift */; };
@@ -45,6 +47,8 @@
 		788DD0412BC2EACA00091D7E /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		788DD0432BC2EB5E00091D7E /* CharatersVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharatersVM.swift; sourceTree = "<group>"; };
 		788DD0452BC2EB6D00091D7E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		788FFD712BE0097F002C9215 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		788FFD732BE0105F002C9215 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		78C2BD712BD51B1500042E38 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		78C2BD732BD5222B00042E38 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		78C2BD752BD5228700042E38 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -109,8 +113,8 @@
 		7876F23B2BC4515400677619 /* Characters */ = {
 			isa = PBXGroup;
 			children = (
+				788FFD702BE00935002C9215 /* Components */,
 				7876F23C2BC4516700677619 /* CharactersVC.swift */,
-				788D91032BD942B500342B89 /* CharacterHeader.swift */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -187,6 +191,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		788FFD702BE00935002C9215 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				788D91032BD942B500342B89 /* CharacterHeader.swift */,
+				788FFD732BE0105F002C9215 /* CharacterCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		78C2BD702BD51AED00042E38 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +208,7 @@
 				78C2BD752BD5228700042E38 /* Constants.swift */,
 				78C2BD772BD570A200042E38 /* UIColor+Ext.swift */,
 				788D91012BD93BC400342B89 /* Profile.swift */,
+				788FFD712BE0097F002C9215 /* UIHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -324,6 +338,7 @@
 				7876F2402BC4518800677619 /* EpisodesVC.swift in Sources */,
 				78C2BD722BD51B1500042E38 /* Colors.swift in Sources */,
 				783C9ADB2BC136BE007A4E65 /* BottomTabVC.swift in Sources */,
+				788FFD742BE0105F002C9215 /* CharacterCell.swift in Sources */,
 				788D91022BD93BC400342B89 /* Profile.swift in Sources */,
 				788D91042BD942B500342B89 /* CharacterHeader.swift in Sources */,
 				783C9AD72BC136BE007A4E65 /* AppDelegate.swift in Sources */,
@@ -333,6 +348,7 @@
 				78C2BD782BD570A200042E38 /* UIColor+Ext.swift in Sources */,
 				783C9AD92BC136BE007A4E65 /* SceneDelegate.swift in Sources */,
 				788DD0462BC2EB6D00091D7E /* NetworkService.swift in Sources */,
+				788FFD722BE0097F002C9215 /* UIHelper.swift in Sources */,
 				788DD0422BC2EACA00091D7E /* Character.swift in Sources */,
 				7876F23D2BC4516700677619 /* CharactersVC.swift in Sources */,
 				7876F2432BC451A100677619 /* SettingsVC.swift in Sources */,

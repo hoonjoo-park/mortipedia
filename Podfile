@@ -9,6 +9,8 @@ target 'mortipedia' do
   pod 'FlexLayout'
   pod 'PinLayout'
   pod 'RxAlamofire'
+  pod 'RxSwift', '6.7.0'
+  pod 'RxCocoa', '6.7.0'
 
 
 end
