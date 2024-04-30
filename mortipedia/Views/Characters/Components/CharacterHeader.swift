@@ -55,7 +55,7 @@ class CharacterHeader: UIView {
     
     
     private func configureFlexLayout() {
-        rootFlexContainer.flex.paddingVertical(20).paddingHorizontal(25).define { flex in
+        rootFlexContainer.flex.paddingVertical(10).paddingHorizontal(25).define { flex in
             flex.addItem(headerContainer).direction(.row).alignItems(.center).define { flex in
                 flex.addItem().direction(.row).alignItems(.center).gap(15).grow(1).define { flex in
                     flex.addItem().size(45).justifyContent(.center).alignItems(.center).cornerRadius(22.5).backgroundColor(Colors.accent).define { flex in
@@ -69,7 +69,7 @@ class CharacterHeader: UIView {
                 }
             }
             
-            flex.addItem(searchContainer).direction(.row).gap(15).position(.absolute).horizontally(0).paddingVertical(20).paddingHorizontal(25).define { flex in
+            flex.addItem(searchContainer).direction(.row).gap(15).position(.absolute).horizontally(0).paddingVertical(10).paddingHorizontal(25).define { flex in
                 
                 flex.addItem().direction(.row).alignItems(.center).grow(1).cornerRadius(12).padding(10).gap(12).backgroundColor(Colors.gray1).define { flex in
                     flex.addItem(textFieldIcon)

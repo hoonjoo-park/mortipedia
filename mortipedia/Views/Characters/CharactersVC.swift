@@ -25,6 +25,7 @@ class CharactersVC: UIViewController {
         characterCollectionView = UICollectionView(frame: .zero, collectionViewLayout: CollectionViewHelper.createCharactersFlowLayout(view: self.view))
         characterCollectionView.register(CharacterCell.self, forCellWithReuseIdentifier: CharacterCell.reuseId)
         
+        characterCollectionView.backgroundColor = Colors.background
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.isUserInteractionEnabled = false
         
