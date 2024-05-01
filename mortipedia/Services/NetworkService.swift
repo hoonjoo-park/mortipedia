@@ -10,8 +10,8 @@ class NetworkManager {
     
     private init() {}
     
-    func getCharacters() -> Observable<[Character]> {
-        let url = baseURL + "/character"
+    func getCharacters(page: Int) -> Observable<[Character]> {
+        let url = baseURL + "/character?page=\(page)"
         return RxAlamofire.data(.get, url).map { [weak self] data -> [Character] in
             guard let self = self else { return [] }
             

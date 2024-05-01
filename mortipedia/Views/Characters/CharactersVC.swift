@@ -49,6 +49,21 @@ class CharactersVC: UIViewController {
                 cell.configure(with: character)
             }
             .disposed(by: disposeBag)
+        
+        characterCollectionView.rx.contentOffset
+            .map { [unowned self] in isEndReached(contentOffset: $0) }
+            .distinctUntilChanged()
+            .filter { $0 == true }
+            .subscribe(onNext: { [unowned self] _ in
+                self.characterVM.getCharacters()
+            }).disposed(by: disposeBag)
+    }
+    
+    
+    private func isEndReached(contentOffset: CGPoint) -> Bool {
+        guard contentOffset.y > 0 else { return false }
+        
+        return contentOffset.y + self.characterCollectionView.frame.size.height + 50 > self.characterCollectionView.contentSize.height
     }
     
     

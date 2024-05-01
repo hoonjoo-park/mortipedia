@@ -43,6 +43,7 @@ class CharacterCell: UICollectionViewCell {
                 return Colors.yellow
             }
         }()
+        
         statusLabel.text = "\(status) - \(species)"
         
         [nameLabel, characterImage, statusBullet, statusLabel].forEach {
