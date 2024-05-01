@@ -11,6 +11,6 @@ target 'mortipedia' do
   pod 'RxAlamofire'
   pod 'RxSwift', '6.7.0'
   pod 'RxCocoa', '6.7.0'
-
+  pod 'Kingfisher', '~> 7.0'
 
 end

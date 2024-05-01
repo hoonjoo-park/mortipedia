@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.9.1)
   - FlexLayout (2.0.07)
+  - Kingfisher (7.11.0)
   - PinLayout (1.10.5)
   - RxAlamofire (6.1.1):
     - RxAlamofire/Core (= 6.1.1)
@@ -16,6 +17,7 @@ PODS:
 
 DEPENDENCIES:
   - FlexLayout
+  - Kingfisher (~> 7.0)
   - PinLayout
   - RxAlamofire
   - RxCocoa (= 6.7.0)
@@ -25,6 +27,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - FlexLayout
+    - Kingfisher
     - PinLayout
     - RxAlamofire
     - RxCocoa
@@ -34,12 +37,13 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
   FlexLayout: a1facfeac0e0b397a74cfb1d83d1ba93b98f7c52
+  Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
   PinLayout: f6c2b63a5a5b24864064e1d15c67de41b4e74748
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: fb0aefb9e7229c8ab057acde714136d19117f102
   RxRelay: 5d39f4d8da150ad47a71b9ce11915e3eae2a8f4d
   RxSwift: 6ee35684dc3f7a63938758f4b7708199517dfa97
 
-PODFILE CHECKSUM: 7d437f04160fc4a641c8ef78892119f1e96a04f2
+PODFILE CHECKSUM: 584c996496e3394cbb53047b52fe4674441f652d
 
 COCOAPODS: 1.15.2
