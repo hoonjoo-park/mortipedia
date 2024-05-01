@@ -23,4 +23,19 @@ class NetworkManager {
             }
         }
     }
+    
+    
+    func searchCharacters(name: String) -> Observable<[Character]> {
+        let url = baseURL + "/character?name=\(name)"
+        return RxAlamofire.data(.get, url).map { [weak self] data -> [Character] in
+            guard let self = self else { return [] }
+            
+            do {
+                let response = try self.decoder.decode(CharacterResponse.self, from: data)
+                return response.results
+            } catch {
+                return []
+            }
+        }
+    }
 }

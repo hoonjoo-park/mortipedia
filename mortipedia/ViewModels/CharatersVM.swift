@@ -19,6 +19,11 @@ class CharacterVM {
         return isSearchModeSubject.asObservable()
     }
     
+    private let searchedCharactersSubject = BehaviorSubject<[Character?]>(value: [])
+    var searchedCharacters: Observable<[Character?]> {
+        return searchedCharactersSubject.asObservable()
+    }
+    
     func getCharacters() {
         NetworkManager.shared.getCharacters(page: characterPage).subscribe(onNext: { [weak self] characters in
             guard let self = self, isFetchingCharacters == false, canFetchMoreCharacters == true else { return }
@@ -42,5 +47,19 @@ class CharacterVM {
     func toggleSearchMode() {
         let newValue = try? !isSearchModeSubject.value()
         isSearchModeSubject.onNext(newValue ?? false)
+    }
+    
+    
+    func searchCharacters(keyword: String) {
+        NetworkManager.shared.searchCharacters(name: keyword).subscribe(onNext: { [weak self] characters in
+            guard let self = self else { return }
+            
+            self.searchedCharactersSubject.onNext(characters)
+        }).disposed(by: disposeBag)
+    }
+    
+    
+    func clearSearchedCharacters() {
+        searchedCharactersSubject.onNext([])
     }
 }
