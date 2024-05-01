@@ -1,8 +1,11 @@
 import UIKit
 import FlexLayout
+import RxSwift
 
 class CharacterHeader: UIView {
-    let rootFlexContainer = UIView()
+    let characterVM = CharacterVM.shared
+    let disposeBag = DisposeBag()
+    
     let headerContainer = UIView()
     let title = MortiLabel(fontSize: 16, weight: .bold, color: Colors.text)
     let profileImageView = UIImageView()
@@ -15,11 +18,10 @@ class CharacterHeader: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        addSubview(rootFlexContainer)
-        
+                
         configureUI()
         configureFlexLayout()
+        bindSearchMode()
     }
     
     
@@ -34,7 +36,7 @@ class CharacterHeader: UIView {
         let username = selectedProfile == UserProfile.rick ? "Rick" : "Morty"
         
         searchIcon.tintColor = Colors.text
-        searchButton.addTarget(self, action: #selector(handlePressSearchButton), for: .touchUpInside)
+        searchButton.addTarget(self, action: #selector(toggleSearchMode), for: .touchUpInside)
         
         profileImageView.image = profileImage
         
@@ -50,12 +52,12 @@ class CharacterHeader: UIView {
         cancelButton.setTitleColor(Colors.primary, for: .normal)
         cancelButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         
-        cancelButton.addTarget(self, action: #selector(handlePressCancelButton), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(toggleSearchMode), for: .touchUpInside)
     }
     
     
     private func configureFlexLayout() {
-        rootFlexContainer.flex.paddingVertical(10).paddingHorizontal(25).define { flex in
+        self.flex.paddingVertical(10).paddingHorizontal(25).define { flex in
             flex.addItem(headerContainer).direction(.row).alignItems(.center).define { flex in
                 flex.addItem().direction(.row).alignItems(.center).gap(15).grow(1).define { flex in
                     flex.addItem().size(45).justifyContent(.center).alignItems(.center).cornerRadius(22.5).backgroundColor(Colors.accent).define { flex in
@@ -81,31 +83,38 @@ class CharacterHeader: UIView {
     }
     
     
+    private func bindSearchMode() {
+        characterVM.isSearchMode.subscribe(onNext: { [weak self] isSearchMode in
+            guard let self = self else { return }
+            
+            if isSearchMode {
+                self.animateHeader(toHide: self.headerContainer, toShow: self.searchContainer)
+            } else {
+                self.animateHeader(toHide: self.searchContainer, toShow: self.headerContainer)
+            }
+        }).disposed(by: disposeBag)
+    }
+    
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        rootFlexContainer.flex.layout()
+        self.flex.layout()
     }
     
     
-    @objc private func handlePressSearchButton() {
-        UIView.animate(withDuration: 0.15, delay: 0, options: [.curveEaseInOut], animations: {
-            self.headerContainer.alpha = 0
-        }, completion: { _ in
-            self.searchContainer.alpha = 0
-            UIView.animate(withDuration: 0.15, delay: 0, options: [.curveEaseInOut], animations: {
-                self.searchContainer.alpha = 1
-            })
-        })
+    @objc private func toggleSearchMode() {
+        characterVM.toggleSearchMode()
     }
     
-    @objc private func handlePressCancelButton() {
+    
+    private func animateHeader(toHide: UIView, toShow: UIView) {
         UIView.animate(withDuration: 0.15, delay: 0, options: [.curveEaseInOut], animations: {
-            self.searchContainer.alpha = 0
+            toHide.alpha = 0
         }, completion: { _ in
-            self.headerContainer.alpha = 0
+            toShow.alpha = 0
             UIView.animate(withDuration: 0.15, delay: 0, options: [.curveEaseInOut], animations: {
-                self.headerContainer.alpha = 1
+                toShow.alpha = 1
             })
         })
     }

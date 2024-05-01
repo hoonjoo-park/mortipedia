@@ -13,6 +13,11 @@ class CharacterVM {
     var characters: Observable<[Character?]> {
         return charactersSubject.asObservable()
     }
+
+    private let isSearchModeSubject = BehaviorSubject<Bool>(value: false)
+    var isSearchMode: Observable<Bool> {
+        return isSearchModeSubject.asObservable()
+    }
     
     func getCharacters() {
         NetworkManager.shared.getCharacters(page: characterPage).subscribe(onNext: { [weak self] characters in
@@ -25,11 +30,17 @@ class CharacterVM {
                 self.canFetchMoreCharacters = false
             }
 
-            let currentCharacters = try! self.charactersSubject.value()
-            let newCharacters = currentCharacters + characters
+            let currentCharacters = try? self.charactersSubject.value()
+            let newCharacters = (currentCharacters ?? []) + characters
             
             self.charactersSubject.onNext(newCharacters)
             self.isFetchingCharacters = false
         }).disposed(by: disposeBag)
+    }
+    
+    
+    func toggleSearchMode() {
+        let newValue = try? !isSearchModeSubject.value()
+        isSearchModeSubject.onNext(newValue ?? false)
     }
 }

@@ -51,11 +51,11 @@ class CharactersVC: UIViewController {
             .disposed(by: disposeBag)
         
         characterCollectionView.rx.contentOffset
-            .map { [unowned self] in isEndReached(contentOffset: $0) }
+            .map { [weak self] in self?.isEndReached(contentOffset: $0) }
             .distinctUntilChanged()
             .filter { $0 == true }
-            .subscribe(onNext: { [unowned self] _ in
-                self.characterVM.getCharacters()
+            .subscribe(onNext: { [weak self] _ in
+                self?.characterVM.getCharacters()
             }).disposed(by: disposeBag)
     }
     
