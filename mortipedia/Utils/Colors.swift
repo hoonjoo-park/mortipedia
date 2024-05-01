@@ -10,4 +10,5 @@ enum Colors {
     static let accent = UIColor(named: "Accent") ?? .accent
     static let primary = UIColor(named: "Primary") ?? .primary
     static let negative = UIColor(named: "Negative") ?? .negative
+    static let yellow = UIColor(named: "Yellow") ?? .yellow
 }

@@ -12,7 +12,7 @@ class CharacterHeader: UIView {
     let searchTextField = UITextField()
     let cancelButton = UIButton()
     let textFieldIcon = UIImageView(image: UIImage(systemName: "magnifyingglass"))
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         

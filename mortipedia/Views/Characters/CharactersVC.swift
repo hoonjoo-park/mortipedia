@@ -10,7 +10,7 @@ class CharactersVC: UIViewController {
     let headerView = CharacterHeader()
     let characterVM = CharacterVM.shared
     var characterCollectionView: UICollectionView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -4,7 +4,7 @@ class BottomTabVC: UITabBarController {
     let characterIcon = UIImage(named: "character")
     let episodeIcon = UIImage(named: "episode")
     let settingIcon = UIImage(named: "setting")
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
