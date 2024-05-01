@@ -1,5 +1,11 @@
 import Foundation
 
+enum CharacterStatus: String {
+    case Alive = "Alive"
+    case Dead = "Dead"
+    case Unknown = "unknown"
+}
+
 struct CharacterResponse: Codable {
     let info: Info
     let results: [Character]
@@ -15,7 +21,8 @@ struct Info: Codable {
 // MARK: - Result
 struct Character: Codable {
     let id: Int
-    let name, status, species, type: String
+    let name, species, type: String
+    let status: CharacterStatus.RawValue
     let gender: String
     let origin, location: Location
     let image: String
