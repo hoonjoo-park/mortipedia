@@ -22,6 +22,7 @@ class CharacterHeader: UIView {
         configureUI()
         configureFlexLayout()
         bindSearchMode()
+        bindSearchTextFieldToViewModel()
     }
     
     
@@ -93,6 +94,19 @@ class CharacterHeader: UIView {
                 self.animateHeader(toHide: self.searchContainer, toShow: self.headerContainer)
             }
         }).disposed(by: disposeBag)
+    }
+    
+    
+    private func bindSearchTextFieldToViewModel() {
+        searchTextField.rx.text.orEmpty
+            .debounce(.milliseconds(600), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .filter { !$0.isEmpty }
+            .subscribe(onNext: { [weak self] keyword in
+                guard let self = self else { return }
+                
+                self.characterVM.searchCharacters(keyword: keyword)
+            }).disposed(by: disposeBag)
     }
     
     

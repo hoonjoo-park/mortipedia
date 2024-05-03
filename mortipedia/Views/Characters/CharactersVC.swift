@@ -6,10 +6,12 @@ import RxCocoa
 
 class CharactersVC: UIViewController {
     private let disposeBag = DisposeBag()
+    
     let rootFlexContainer = UIView()
     let headerView = CharacterHeader()
     let characterVM = CharacterVM.shared
     var characterCollectionView: UICollectionView!
+    var searchResultCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +24,17 @@ class CharactersVC: UIViewController {
     
     private func configureVC() {
         characterVM.getCharacters()
+        
         characterCollectionView = UICollectionView(frame: .zero, collectionViewLayout: CollectionViewHelper.createCharactersFlowLayout(view: self.view))
         characterCollectionView.register(CharacterCell.self, forCellWithReuseIdentifier: CharacterCell.reuseId)
-        
         characterCollectionView.backgroundColor = Colors.background
+        
+        searchResultCollectionView = UICollectionView(frame: .zero, 
+                                                      collectionViewLayout: CollectionViewHelper.createCharactersFlowLayout(view: self.view))
+        searchResultCollectionView.register(CharacterCell.self, forCellWithReuseIdentifier: CharacterCell.reuseId)
+        searchResultCollectionView.backgroundColor = Colors.background
+        searchResultCollectionView.alpha = 0
+        
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.isUserInteractionEnabled = false
         
@@ -37,7 +46,10 @@ class CharactersVC: UIViewController {
     private func configureUI() {
         rootFlexContainer.flex.direction(.column).define { flex in
             flex.addItem(headerView)
-            flex.addItem(characterCollectionView).grow(1)
+            flex.addItem().grow(1).define { flex in
+                flex.addItem(characterCollectionView).position(.absolute).horizontally(0).vertically(0)
+                flex.addItem(searchResultCollectionView).position(.absolute).horizontally(0).vertically(0)
+            }
         }
     }
     
@@ -49,6 +61,24 @@ class CharactersVC: UIViewController {
                 cell.configure(with: character)
             }
             .disposed(by: disposeBag)
+        
+        characterVM.searchedCharacters
+            .bind(to: searchResultCollectionView.rx.items(cellIdentifier: CharacterCell.reuseId,
+                                                          cellType: CharacterCell.self)) { row, result, cell in
+                guard let result = result else { return }
+                cell.configure(with: result)
+            }.disposed(by: disposeBag)
+        
+        characterVM.isSearchMode.subscribe(onNext: { [weak self]  isSearchMode in
+            guard let self = self else { return }
+            if isSearchMode == true {
+                self.characterCollectionView.alpha = 0
+                self.searchResultCollectionView.alpha = 1
+            } else {
+                self.characterCollectionView.alpha = 1
+                self.searchResultCollectionView.alpha = 0
+            }
+        }).disposed(by: disposeBag)
         
         characterCollectionView.rx.contentOffset
             .map { [weak self] in self?.isEndReached(contentOffset: $0) }
