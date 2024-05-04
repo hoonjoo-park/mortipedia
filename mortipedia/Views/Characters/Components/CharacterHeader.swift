@@ -7,7 +7,7 @@ class CharacterHeader: UIView {
     let disposeBag = DisposeBag()
     
     let headerContainer = UIView()
-    let title = MortiLabel(fontSize: 16, weight: .bold, color: Colors.text)
+    let title = MortyLabel(fontSize: 16, weight: .bold, color: Colors.text)
     let profileImageView = UIImageView()
     let searchButton = UIButton()
     let searchIcon = UIImageView(image: UIImage(systemName: "magnifyingglass"))
@@ -123,11 +123,11 @@ class CharacterHeader: UIView {
     
     
     private func animateHeader(toHide: UIView, toShow: UIView) {
-        UIView.animate(withDuration: 0.15, delay: 0, options: [.curveEaseInOut], animations: {
+        UIView.animate(withDuration: 0.1, delay: 0, options: [.curveEaseInOut], animations: {
             toHide.alpha = 0
         }, completion: { _ in
             toShow.alpha = 0
-            UIView.animate(withDuration: 0.15, delay: 0, options: [.curveEaseInOut], animations: {
+            UIView.animate(withDuration: 0.1, delay: 0, options: [.curveEaseInOut], animations: {
                 toShow.alpha = 1
             })
         })

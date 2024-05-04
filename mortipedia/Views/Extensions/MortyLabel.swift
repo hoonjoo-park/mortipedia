@@ -1,6 +1,6 @@
 import UIKit
 
-class MortiLabel: UILabel {
+class MortyLabel: UILabel {
 
     convenience init(fontSize: CGFloat, weight: UIFont.Weight, color: UIColor?) {
         self.init(frame: .zero)

@@ -7,9 +7,9 @@ class CharacterCell: UICollectionViewCell {
     static let reuseId = "CharacterCell"
     
     let characterImage = UIImageView()
-    let nameLabel = MortiLabel(fontSize: 14, weight: .semibold, color: Colors.text)
+    let nameLabel = MortyLabel(fontSize: 14, weight: .semibold, color: Colors.text)
     let statusBullet = UIView()
-    let statusLabel = MortiLabel(fontSize: 10, weight: .semibold, color: Colors.text)
+    let statusLabel = MortyLabel(fontSize: 10, weight: .semibold, color: Colors.text)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
