@@ -34,6 +34,7 @@ class CharactersVC: UIViewController {
         searchResultCollectionView.register(CharacterCell.self, forCellWithReuseIdentifier: CharacterCell.reuseId)
         searchResultCollectionView.backgroundColor = Colors.background
         searchResultCollectionView.alpha = 0
+        searchResultCollectionView.backgroundView = EmptyResultView(message: "No Results Found ;(")
         
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.isUserInteractionEnabled = false
