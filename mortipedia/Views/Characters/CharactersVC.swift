@@ -70,6 +70,12 @@ class CharactersVC: UIViewController {
                 cell.configure(with: result)
             }.disposed(by: disposeBag)
         
+        characterVM.searchedCharacters.subscribe(onNext: { [weak self] results in
+            guard let self = self else { return }
+            
+            self.searchResultCollectionView.backgroundView?.isHidden = !results.isEmpty
+        }).disposed(by: disposeBag)
+        
         characterVM.isSearchMode.subscribe(onNext: { [weak self]  isSearchMode in
             guard let self = self else { return }
             if isSearchMode == true {

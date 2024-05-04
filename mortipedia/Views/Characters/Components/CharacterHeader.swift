@@ -101,9 +101,13 @@ class CharacterHeader: UIView {
         searchTextField.rx.text.orEmpty
             .debounce(.milliseconds(600), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
-            .filter { !$0.isEmpty }
             .subscribe(onNext: { [weak self] keyword in
                 guard let self = self else { return }
+                
+                if keyword.isEmpty {
+                    self.characterVM.clearSearchedCharacters()
+                    return
+                }
                 
                 self.characterVM.searchCharacters(keyword: keyword)
             }).disposed(by: disposeBag)
