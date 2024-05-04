@@ -22,6 +22,14 @@ class CharactersVC: UIViewController {
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isUserInteractionEnabled = false
+    }
+    
+    
     private func configureVC() {
         characterVM.getCharacters()
         
@@ -35,9 +43,6 @@ class CharactersVC: UIViewController {
         searchResultCollectionView.backgroundColor = Colors.background
         searchResultCollectionView.alpha = 0
         searchResultCollectionView.backgroundView = EmptyResultView(message: "No Results Found ;(")
-        
-        navigationController?.navigationBar.isHidden = true
-        navigationController?.navigationBar.isUserInteractionEnabled = false
         
         view.addSubview(rootFlexContainer)
         view.backgroundColor = Colors.background
@@ -94,6 +99,15 @@ class CharactersVC: UIViewController {
             .subscribe(onNext: { [weak self] _ in
                 self?.characterVM.getCharacters()
             }).disposed(by: disposeBag)
+        
+        characterCollectionView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
+            guard let self = self,
+                  let selectedCharacter = self.characterVM.getCharacterByIndex(index: indexPath.row) else { return }
+            
+            let characterDetailVC = CharacterDetailVC(characterId: selectedCharacter.id)
+            characterDetailVC.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(characterDetailVC, animated: true)
+        }).disposed(by: disposeBag)
     }
     
     

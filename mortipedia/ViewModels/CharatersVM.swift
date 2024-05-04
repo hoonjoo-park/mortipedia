@@ -44,6 +44,11 @@ class CharacterVM {
     }
     
     
+    func getCharacterByIndex(index: Int) -> Character? {
+        return try? charactersSubject.value()[index]
+    }
+    
+    
     func toggleSearchMode() {
         let newValue = try? !isSearchModeSubject.value()
         isSearchModeSubject.onNext(newValue ?? false)
