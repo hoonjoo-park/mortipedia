@@ -24,6 +24,12 @@ class CharacterVM {
         return searchedCharactersSubject.asObservable()
     }
     
+    
+    private let characterDetailSubject = BehaviorSubject<Character?>(value: nil)
+    var characterDetail: Observable<Character?> {
+        return characterDetailSubject.asObservable()
+    }
+    
     func getCharacters() {
         NetworkManager.shared.getCharacters(page: characterPage).subscribe(onNext: { [weak self] characters in
             guard let self = self, isFetchingCharacters == false, canFetchMoreCharacters == true else { return }
@@ -66,5 +72,14 @@ class CharacterVM {
     
     func clearSearchedCharacters() {
         searchedCharactersSubject.onNext([])
+    }
+    
+    
+    func fetchCharacterDetail(id: Int) {
+        NetworkManager.shared.fetchCharacterDetailById(id: id).subscribe(onNext: { [weak self] character in
+            guard let self = self else { return }
+            
+            self.characterDetailSubject.onNext(character)
+        }).disposed(by: disposeBag)
     }
 }

@@ -38,4 +38,19 @@ class NetworkManager {
             }
         }
     }
+    
+    
+    func fetchCharacterDetailById(id: Int) -> Observable<Character?> {
+        let url = baseURL + "/character/\(id)"
+        return RxAlamofire.data(.get, url).map { [weak self] data in
+            guard let self = self else { return nil }
+            
+            do {
+                let response = try self.decoder.decode(Character.self, from: data)
+                return response
+            } catch {
+                return nil
+            }
+        }
+    }
 }
