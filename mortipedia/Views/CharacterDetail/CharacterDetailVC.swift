@@ -30,6 +30,7 @@ class CharacterDetailVC: UIViewController {
         
         super.init(nibName: nil, bundle: nil)
         
+        characterVM.clearCharacterDetail(id: characterId)
         characterVM.fetchCharacterDetail(id: characterId)
     }
     
@@ -44,6 +45,7 @@ class CharacterDetailVC: UIViewController {
         
         configureViewController()
         bindViewModel()
+        configureUI()
     }
     
     
@@ -61,6 +63,7 @@ class CharacterDetailVC: UIViewController {
             let status = CharacterStatus(rawValue: character.status) ?? .Alive
             
             self.characterImageView.kf.setImage(with: imageUrl)
+            self.characterImageView.clipsToBounds = true
             self.nameLabel.text = character.name
             self.statusBullet.backgroundColor = {
                 switch status {
@@ -76,6 +79,37 @@ class CharacterDetailVC: UIViewController {
             self.genderLabel.text = "Gender - \(character.gender)"
             self.locationLabel.text = "Location - \(character.location.name)"
             self.originLabel.text = "Origin - \(character.origin.name)"
+
+            [self.characterImageView, 
+             self.imageOverlay,
+             self.nameLabel,
+             self.statusBullet,
+             self.statusLabel,
+             self.genderLabel,
+             self.locationLabel,
+             self.originLabel].forEach { $0.flex.markDirty() }
         }).disposed(by: disposeBag)
+    }
+    
+    
+    private func configureUI() {
+        view.flex.define { flex in
+            flex.addItem().size(view.frame.width).define { flex in
+                flex.addItem(characterImageView).grow(1)
+                flex.addItem(imageOverlay)
+                    .position(.absolute).horizontally(0).vertically(0).backgroundColor(UIColor(red: 0, green: 0, blue: 0, alpha: 0.33))
+            }
+            
+            flex.addItem().grow(1).padding(25).define { flex in
+                flex.addItem(nameLabel)
+            }
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        view.pin.all()
+        view.flex.layout()
     }
 }

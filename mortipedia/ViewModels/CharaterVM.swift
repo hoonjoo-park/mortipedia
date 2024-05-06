@@ -82,4 +82,15 @@ class CharacterVM {
             self.characterDetailSubject.onNext(character)
         }).disposed(by: disposeBag)
     }
+    
+    
+    func clearCharacterDetail(id: Int) {
+        let currentCharacterDetailId = try? characterDetailSubject.value()?.id
+        
+        if currentCharacterDetailId == id {
+            return
+        }
+        
+        characterDetailSubject.onNext(nil)
+    }
 }

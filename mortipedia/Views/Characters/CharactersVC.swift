@@ -50,7 +50,7 @@ class CharactersVC: UIViewController {
     
     
     private func configureUI() {
-        rootFlexContainer.flex.direction(.column).define { flex in
+        rootFlexContainer.flex.define { flex in
             flex.addItem(headerView)
             flex.addItem().grow(1).define { flex in
                 flex.addItem(characterCollectionView).position(.absolute).horizontally(0).vertically(0)
