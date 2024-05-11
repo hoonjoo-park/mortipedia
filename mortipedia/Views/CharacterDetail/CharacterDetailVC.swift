@@ -87,6 +87,8 @@ class CharacterDetailVC: UIViewController {
              self.genderLabel,
              self.locationLabel,
              self.originLabel].forEach { $0.flex.markDirty() }
+            
+            view.setNeedsLayout()
         }).disposed(by: disposeBag)
     }
     
@@ -100,7 +102,7 @@ class CharacterDetailVC: UIViewController {
             }
             
             flex.addItem().grow(1).padding(25).define { flex in
-                flex.addItem(nameLabel)
+                flex.addItem(nameLabel).marginBottom(24)
                 flex.addItem().direction(.row).alignItems(.center).gap(8).define { flex in
                     flex.addItem(statusBullet).size(10).cornerRadius(5)
                     flex.addItem(statusLabel)
