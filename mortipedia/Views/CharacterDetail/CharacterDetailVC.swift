@@ -52,7 +52,6 @@ class CharacterDetailVC: UIViewController {
     private func configureViewController() {
         view.backgroundColor = Colors.background
         navigationController?.navigationBar.isHidden = false
-        
     }
     
     
@@ -102,6 +101,10 @@ class CharacterDetailVC: UIViewController {
             
             flex.addItem().grow(1).padding(25).define { flex in
                 flex.addItem(nameLabel)
+                flex.addItem().direction(.row).alignItems(.center).gap(8).define { flex in
+                    flex.addItem(statusBullet).size(10).cornerRadius(5)
+                    flex.addItem(statusLabel)
+                }
             }
         }
     }
