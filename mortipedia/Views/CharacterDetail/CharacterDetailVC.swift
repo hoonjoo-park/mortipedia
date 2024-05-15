@@ -21,11 +21,11 @@ class CharacterDetailVC: UIViewController {
     private let nameLabel = MortyLabel(fontSize: 24, weight: .bold, color: Colors.text)
     private let statusBullet = UIView()
     private let statusLabel = MortyLabel(fontSize: 16, weight: .medium, color: Colors.text)
-    private let genderIcon = UIImageView(image: UIImage(named: "gender"))
+    private let genderIcon = UIImageView(image: UIImage(named: "gender")?.withRenderingMode(.alwaysTemplate))
     private let genderLabel = MortyLabel(fontSize: 16, weight: .medium, color: Colors.text)
-    private let locationIcon = UIImageView(image: UIImage(named: "location"))
+    private let locationIcon = UIImageView(image: UIImage(named: "location")?.withRenderingMode(.alwaysTemplate))
     private let locationLabel = MortyLabel(fontSize: 16, weight: .medium, color: Colors.text)
-    private let originIcon = UIImageView(image: UIImage(named: "origin"))
+    private let originIcon = UIImageView(image: UIImage(named: "origin")?.withRenderingMode(.alwaysTemplate))
     private let originLabel = MortyLabel(fontSize: 16, weight: .medium, color: Colors.text)
 
     init(characterId: Int) {
@@ -96,6 +96,9 @@ class CharacterDetailVC: UIViewController {
     
     
     private func configureUI() {
+        [genderIcon, locationIcon, originIcon].forEach {
+            $0.tintColor = Colors.text
+        }
         characterImageView.clipsToBounds = true
         characterImageView.layer.cornerRadius = 30
         characterImageView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMaxYCorner, .layerMaxXMaxYCorner)
