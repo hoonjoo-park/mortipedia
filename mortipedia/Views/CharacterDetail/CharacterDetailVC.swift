@@ -20,10 +20,13 @@ class CharacterDetailVC: UIViewController {
     private let imageOverlay = UIView()
     private let nameLabel = MortyLabel(fontSize: 24, weight: .bold, color: Colors.text)
     private let statusBullet = UIView()
-    private let statusLabel = MortyLabel(fontSize: 14, weight: .medium, color: Colors.text)
-    private let genderLabel = MortyLabel(fontSize: 14, weight: .medium, color: Colors.text)
-    private let locationLabel = MortyLabel(fontSize: 14, weight: .medium, color: Colors.text)
-    private let originLabel = MortyLabel(fontSize: 14, weight: .medium, color: Colors.text)
+    private let statusLabel = MortyLabel(fontSize: 16, weight: .medium, color: Colors.text)
+    private let genderIcon = UIImageView(image: UIImage(named: "gender"))
+    private let genderLabel = MortyLabel(fontSize: 16, weight: .medium, color: Colors.text)
+    private let locationIcon = UIImageView(image: UIImage(named: "location"))
+    private let locationLabel = MortyLabel(fontSize: 16, weight: .medium, color: Colors.text)
+    private let originIcon = UIImageView(image: UIImage(named: "origin"))
+    private let originLabel = MortyLabel(fontSize: 16, weight: .medium, color: Colors.text)
 
     init(characterId: Int) {
         self.characterId = characterId
@@ -105,10 +108,22 @@ class CharacterDetailVC: UIViewController {
             }
             
             flex.addItem().grow(1).padding(25).define { flex in
-                flex.addItem(nameLabel).marginBottom(24)
-                flex.addItem().direction(.row).alignItems(.center).gap(8).define { flex in
+                flex.addItem(nameLabel)
+                flex.addItem().direction(.row).alignItems(.center).paddingVertical(15).gap(8).define { flex in
                     flex.addItem(statusBullet).size(10).cornerRadius(5)
                     flex.addItem(statusLabel)
+                }
+                flex.addItem().direction(.row).alignItems(.center).paddingVertical(15).gap(10).define { flex in
+                    flex.addItem(genderIcon)
+                    flex.addItem(genderLabel)
+                }
+                flex.addItem().direction(.row).alignItems(.center).paddingVertical(15).gap(10).define { flex in
+                    flex.addItem(locationIcon)
+                    flex.addItem(locationLabel)
+                }
+                flex.addItem().direction(.row).alignItems(.center).paddingVertical(15).gap(10).define { flex in
+                    flex.addItem(originIcon)
+                    flex.addItem(originLabel)
                 }
             }
         }
