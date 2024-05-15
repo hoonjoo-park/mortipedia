@@ -62,7 +62,6 @@ class CharacterDetailVC: UIViewController {
             let status = CharacterStatus(rawValue: character.status) ?? .Alive
             
             self.characterImageView.kf.setImage(with: imageUrl)
-            self.characterImageView.clipsToBounds = true
             self.nameLabel.text = character.name
             self.statusBullet.backgroundColor = {
                 switch status {
@@ -94,6 +93,10 @@ class CharacterDetailVC: UIViewController {
     
     
     private func configureUI() {
+        characterImageView.clipsToBounds = true
+        characterImageView.layer.cornerRadius = 30
+        characterImageView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMaxYCorner, .layerMaxXMaxYCorner)
+        
         view.flex.define { flex in
             flex.addItem().size(view.frame.width).define { flex in
                 flex.addItem(characterImageView).grow(1)
