@@ -135,7 +135,6 @@ class CharacterDetailVC: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        view.pin.all()
         view.flex.layout()
     }
 }
