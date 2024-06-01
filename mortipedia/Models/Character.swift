@@ -7,12 +7,12 @@ enum CharacterStatus: String {
 }
 
 struct CharacterResponse: Codable {
-    let info: Info
+    let info: ResponseInfo
     let results: [Character]
 }
 
 // MARK: - Info
-struct Info: Codable {
+struct ResponseInfo: Codable {
     let count, pages: Int
     let next: String?
     let prev: String?
