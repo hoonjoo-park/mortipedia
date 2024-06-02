@@ -55,17 +55,17 @@ class NetworkManager {
     }
     
     
-    func fetchEpisodes() -> Observable<Episode?> {
+    func fetchEpisodes() -> Observable<[Episode]> {
         let url = baseURL + "/episode"
         
         return RxAlamofire.data(.get, url).map { [weak self] data in
-            guard let self = self else { return nil }
+            guard let self = self else { return [] }
             
             do {
-                let response = try self.decoder.decode(Episode.self, from: data)
-                return response
+                let response = try self.decoder.decode(EpisodeResponse.self, from: data)
+                return response.results
             } catch {
-                return nil
+                return []
             }
         }
     }

@@ -1,6 +1,7 @@
 import UIKit
 
 class EpisodesVC: UIViewController {
+    private let episodeVM = EpisodeVM.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -13,5 +14,7 @@ class EpisodesVC: UIViewController {
         view.backgroundColor = Colors.background
         navigationItem.title = "Episodes"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        episodeVM.getEpisodes()
     }
 }
