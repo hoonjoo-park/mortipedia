@@ -1,4 +1,6 @@
 import UIKit
+import FlexLayout
+import PinLayout
 
 class EpisodesVC: UIViewController {
     private let episodeVM = EpisodeVM.shared
@@ -10,6 +12,7 @@ class EpisodesVC: UIViewController {
         super.viewDidLoad()
         
         configureViewController()
+        configureUI()
     }
     
     
