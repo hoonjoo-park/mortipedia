@@ -34,6 +34,8 @@ class EpisodesVC: UIViewController {
     
     
     private func configureUI() {
+        self.episodesTableView = UITableView(frame: .zero)
+        
         view.addSubview(rootFlexContainer)
         view.backgroundColor = Colors.background
         

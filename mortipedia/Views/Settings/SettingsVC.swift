@@ -30,6 +30,8 @@ class SettingsVC: UIViewController {
     
     
     private func configureUI() {
+        self.settingsTableView = UITableView(frame: .zero)
+        
         view.addSubview(rootFlexContainer)
         
         rootFlexContainer.flex.define { flex in
