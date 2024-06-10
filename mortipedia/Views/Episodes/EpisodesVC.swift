@@ -44,6 +44,7 @@ class EpisodesVC: UIViewController {
         episodesTableView.rowHeight = 58
         episodesTableView.separatorStyle = .none
         
+        
         episodeVM.episodes.bind(to: episodesTableView.rx.items(cellIdentifier: EpisodesTableViewCell.reuseId, cellType: EpisodesTableViewCell.self)) { row, episode, cell in
             guard let episode = episode else { return }
             

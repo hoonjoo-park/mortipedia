@@ -11,6 +11,7 @@ import FlexLayout
 class EpisodesTableViewCell: UITableViewCell {
     static let reuseId = "EpisodesTableViewCell"
     
+    private let indexLabel = MortyLabel(fontSize: 16, weight: .semibold, color: .text)
     private let titleLabel = MortyLabel(fontSize: 16, weight: .semibold, color: .text)
     private let airDateLabel = MortyLabel(fontSize: 14, weight: .medium, color: .text)
     
@@ -59,16 +60,20 @@ class EpisodesTableViewCell: UITableViewCell {
     
     
     func setCell(episode: Episode) {
+        indexLabel.text = String(episode.id)
         titleLabel.text = episode.name
         airDateLabel.text = episode.air_date
         
-        [titleLabel, airDateLabel].forEach { $0.flex.markDirty() }
+        [indexLabel, titleLabel, airDateLabel].forEach { $0.flex.markDirty() }
     }
+    
     
     private func configureUI() {
         contentView.flex.paddingHorizontal(25).define { flex in
-            flex.addItem().direction(.row).backgroundColor(.gray4).cornerRadius(14).define { flex in
-                flex.addItem()
+            flex.addItem().gap(10).direction(.row).alignItems(.center).backgroundColor(.gray4).cornerRadius(14).define { flex in
+                flex.addItem().size(30).cornerRadius(8).alignItems(.center).justifyContent(.center).define { flex in
+                    flex.addItem(indexLabel)
+                }
                 flex.addItem().define { flex in
                     flex.addItem(titleLabel)
                     flex.addItem(airDateLabel)
