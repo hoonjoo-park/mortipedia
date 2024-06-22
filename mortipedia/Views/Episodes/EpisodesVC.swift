@@ -9,7 +9,7 @@ class EpisodesVC: UIViewController {
     private let disposeBag = DisposeBag()
     
     private let rootFlexContainer = UIView()
-    private var episodesTableView: UITableView!
+    private var episodesCollectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,17 +38,12 @@ class EpisodesVC: UIViewController {
     
     
     private func bindViewModel() {
-        self.episodesTableView = UITableView(frame: .zero)
-        
-        episodesTableView.register(EpisodesTableViewCell.self, forCellReuseIdentifier: EpisodesTableViewCell.reuseId)
-        episodesTableView.rowHeight = 58
-        episodesTableView.separatorStyle = .none
         
         
-        episodeVM.episodes.bind(to: episodesTableView.rx.items(cellIdentifier: EpisodesTableViewCell.reuseId, cellType: EpisodesTableViewCell.self)) { row, episode, cell in
-            guard let episode = episode else { return }
+        
+        episodeVM.episodes.bind(to: episodesCollectionView.rx.items(cellIdentifier: EpisodeCollectionViewCell.reuseId,
+                                                                    cellType: EpisodeCollectionViewCell.self)) { row, episode, cell in
             
-            cell.setCell(episode: episode)
         }.disposed(by: disposeBag)
     }
     
@@ -58,7 +53,7 @@ class EpisodesVC: UIViewController {
         view.backgroundColor = Colors.background
         
         rootFlexContainer.flex.define { flex in
-            flex.addItem(episodesTableView).grow(1)
+            flex.addItem(episodesCollectionView).grow(1)
         }
     }
 }
