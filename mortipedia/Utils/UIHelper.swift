@@ -19,4 +19,10 @@ enum CollectionViewHelper {
         
         return flowLayout
     }
+    
+    static func createEpisodesFlowLayout(view: UIView) -> UICollectionViewFlowLayout {
+        let flowLayout = UICollectionViewFlowLayout()
+        
+        return flowLayout
+    }
 }

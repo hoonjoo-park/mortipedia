@@ -10,11 +10,12 @@ class EpisodesVC: UIViewController {
     
     private let rootFlexContainer = UIView()
     private var episodesCollectionView: UICollectionView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureViewController()
+        configureCollectionView()
         bindViewModel()
         configureUI()
     }
@@ -37,14 +38,19 @@ class EpisodesVC: UIViewController {
     }
     
     
+    private func configureCollectionView() {
+        episodesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: CollectionViewHelper.createEpisodesFlowLayout(view: self.view))
+        episodesCollectionView.register(EpisodeCollectionViewCell.self, forCellWithReuseIdentifier: EpisodeCollectionViewCell.reuseId)
+        episodesCollectionView.backgroundColor = Colors.background
+    }
+    
+    
     private func bindViewModel() {
-        
-        
-        
-        episodeVM.episodes.bind(to: episodesCollectionView.rx.items(cellIdentifier: EpisodeCollectionViewCell.reuseId,
-                                                                    cellType: EpisodeCollectionViewCell.self)) { row, episode, cell in
-            
-        }.disposed(by: disposeBag)
+        episodeVM.episodes
+            .bind(to: episodesCollectionView.rx.items(cellIdentifier: EpisodeCollectionViewCell.reuseId, cellType: EpisodeCollectionViewCell.self)) { row, episode, cell in
+                guard let episode = episode else { return }
+                cell.setCell(episode: episode)
+            }.disposed(by: disposeBag)
     }
     
     
