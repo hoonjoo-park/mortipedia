@@ -24,7 +24,7 @@ class EpisodesVC: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        rootFlexContainer.pin.all(view.safeAreaInsets)
+        rootFlexContainer.pin.all()
         rootFlexContainer.flex.layout()
     }
     
@@ -40,6 +40,7 @@ class EpisodesVC: UIViewController {
     
     private func configureCollectionView() {
         episodesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: CollectionViewHelper.createEpisodesFlowLayout(view: self.view))
+        episodesCollectionView.contentInsetAdjustmentBehavior = . always
         episodesCollectionView.register(EpisodeCollectionViewCell.self, forCellWithReuseIdentifier: EpisodeCollectionViewCell.reuseId)
         episodesCollectionView.backgroundColor = Colors.background
     }
