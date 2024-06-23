@@ -58,8 +58,8 @@ class EpisodeCollectionViewCell: UICollectionViewCell {
     
     private func configureUI() {
         contentView.flex.paddingHorizontal(25).define { flex in
-            flex.addItem().gap(10).direction(.row).alignItems(.center).backgroundColor(.gray4).cornerRadius(14).define { flex in
-                flex.addItem().size(30).cornerRadius(8).alignItems(.center).justifyContent(.center).define { flex in
+            flex.addItem().gap(10).direction(.row).alignItems(.center).paddingVertical(10).backgroundColor(.gray4).cornerRadius(14).define { flex in
+                flex.addItem().size(30).cornerRadius(8).backgroundColor(.accent).alignItems(.center).justifyContent(.center).define { flex in
                     flex.addItem(indexLabel)
                 }
                 flex.addItem().define { flex in
