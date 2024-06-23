@@ -27,7 +27,7 @@ enum CollectionViewHelper {
         let gap: CGFloat = 15
         let itemWidth = viewWidth
         
-        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 20, right: 0)
         flowLayout.itemSize = CGSize(width: itemWidth, height: 58)
         flowLayout.minimumLineSpacing = gap
         
