@@ -50,6 +50,7 @@ class EpisodeCollectionViewCell: UICollectionViewCell {
     func setCell(episode: Episode) {
         indexLabel.text = String(episode.id)
         titleLabel.text = episode.name
+        titleLabel.numberOfLines = 1
         airDateLabel.text = episode.air_date
         
         [indexLabel, titleLabel, airDateLabel].forEach { $0.flex.markDirty() }
