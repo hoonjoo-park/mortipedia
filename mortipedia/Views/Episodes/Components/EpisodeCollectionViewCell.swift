@@ -63,8 +63,8 @@ class EpisodeCollectionViewCell: UICollectionViewCell {
                 flex.addItem().size(30).cornerRadius(8).backgroundColor(.accent).alignItems(.center).justifyContent(.center).define { flex in
                     flex.addItem(indexLabel)
                 }
-                flex.addItem().define { flex in
-                    flex.addItem(titleLabel)
+                flex.addItem().shrink(1).define { flex in
+                    flex.addItem(titleLabel).shrink(1)
                     flex.addItem(airDateLabel)
                 }
             }
