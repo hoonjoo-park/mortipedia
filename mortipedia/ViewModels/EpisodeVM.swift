@@ -17,6 +17,8 @@ class EpisodeVM {
         return episodesSubject.asObservable()
     }
     
+    private var nextEpisodePageUrl: String? = nil
+    
     private let selectedEpisodeSubject = BehaviorSubject<Episode?>(value: nil)
     var selectedEpisode: Observable<Episode?> {
         return selectedEpisodeSubject.asObservable()
@@ -25,9 +27,33 @@ class EpisodeVM {
     
     func getEpisodes() {
         NetworkManager.shared.fetchEpisodes().subscribe(onNext: { [weak self] response in
-            guard let self = self else { return }
+            guard let self = self, let response = response else { return }
             
-            self.episodesSubject.onNext(response)
+            self.episodesSubject.onNext(response.results)
+            
+            if response.info.next != nil {
+                nextEpisodePageUrl = response.info.next
+            } else {
+                nextEpisodePageUrl = nil
+            }
+        }).disposed(by: disposeBag)
+    }
+    
+    
+    func getNextEpisodes() {
+        guard let nextEpisodePageUrl = nextEpisodePageUrl else { return }
+        
+        NetworkManager.shared.fetchEpisodesNextPage(nextEpisodePageUrl).subscribe(onNext: { [weak self] response in
+            guard let self = self, let response = response else { return }
+            let currentEpisodes = try? self.episodesSubject.value()
+            
+            self.episodesSubject.onNext((currentEpisodes ?? []) + response.results)
+            
+            if response.info.next != nil {
+                self.nextEpisodePageUrl = response.info.next
+            } else {
+                self.nextEpisodePageUrl = nil
+            }
         }).disposed(by: disposeBag)
     }
     

@@ -52,6 +52,14 @@ class EpisodesVC: UIViewController {
                 guard let episode = episode else { return }
                 cell.setCell(episode: episode)
             }.disposed(by: disposeBag)
+        
+        episodesCollectionView.rx.contentOffset
+            .map { [weak self] in self?.isEndReached(contentOffset: $0) }
+            .distinctUntilChanged()
+            .filter { $0 == true }
+            .subscribe(onNext: { [weak self] _ in
+                self?.episodeVM.getNextEpisodes()
+            }).disposed(by: disposeBag)
     }
     
     
@@ -62,5 +70,12 @@ class EpisodesVC: UIViewController {
         rootFlexContainer.flex.define { flex in
             flex.addItem(episodesCollectionView).grow(1)
         }
+    }
+    
+    
+    private func isEndReached(contentOffset: CGPoint) -> Bool {
+        guard contentOffset.y > 0 else { return false }
+        
+        return contentOffset.y + self.episodesCollectionView.frame.size.height + 50 > self.episodesCollectionView.contentSize.height
     }
 }

@@ -55,17 +55,31 @@ class NetworkManager {
     }
     
     
-    func fetchEpisodes() -> Observable<[Episode]> {
+    func fetchEpisodes() -> Observable<EpisodeResponse?> {
         let url = baseURL + "/episode"
         
         return RxAlamofire.data(.get, url).map { [weak self] data in
-            guard let self = self else { return [] }
+            guard let self = self else { return nil }
             
             do {
                 let response = try self.decoder.decode(EpisodeResponse.self, from: data)
-                return response.results
+                return response
             } catch {
-                return []
+                return nil
+            }
+        }
+    }
+    
+    
+    func fetchEpisodesNextPage(_ nextPageUrl: String) -> Observable<EpisodeResponse?> {
+        return RxAlamofire.data(.get, nextPageUrl).map { [weak self] data in
+            guard let self = self else { return nil }
+            
+            do {
+                let response = try self.decoder.decode(EpisodeResponse.self, from: data)
+                return response
+            } catch {
+                return nil
             }
         }
     }
