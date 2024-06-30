@@ -24,10 +24,14 @@ class CharacterVM {
         return searchedCharactersSubject.asObservable()
     }
     
-    
     private let characterDetailSubject = BehaviorSubject<Character?>(value: nil)
     var characterDetail: Observable<Character?> {
         return characterDetailSubject.asObservable()
+    }
+    
+    private let isFetchingCharacterDetailSubject = BehaviorSubject<Bool>(value: true)
+    var isFetchingCharacterDetail: Observable<Bool> {
+        return isFetchingCharacterDetailSubject.asObservable()
     }
     
     func getCharacters() {
@@ -76,20 +80,23 @@ class CharacterVM {
     
     
     func fetchCharacterDetail(id: Int) {
+        isFetchingCharacterDetailSubject.onNext(true)
+        
         NetworkManager.shared.fetchCharacterDetailById(id: id).subscribe(onNext: { [weak self] character in
             guard let self = self else { return }
             
+            
             self.characterDetailSubject.onNext(character)
         }).disposed(by: disposeBag)
+        
+        isFetchingCharacterDetailSubject.onNext(false)
     }
     
     
-    func clearCharacterDetail(id: Int) {
+    func clearCharacterDetail(id: Int) {        
         let currentCharacterDetailId = try? characterDetailSubject.value()?.id
         
-        if currentCharacterDetailId == id {
-            return
-        }
+        if currentCharacterDetailId == id { return }
         
         characterDetailSubject.onNext(nil)
     }

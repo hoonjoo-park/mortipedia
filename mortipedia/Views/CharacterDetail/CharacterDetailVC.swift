@@ -34,6 +34,7 @@ class CharacterDetailVC: UIViewController {
         
         super.init(nibName: nil, bundle: nil)
         
+        characterVM.clearCharacterDetail(id: characterId)
         characterVM.fetchCharacterDetail(id: characterId)
     }
     
@@ -52,13 +53,6 @@ class CharacterDetailVC: UIViewController {
     }
     
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        characterVM.clearCharacterDetail(id: characterId)
-    }
-    
-    
     private func configureViewController() {
         view.backgroundColor = Colors.background
         navigationController?.navigationBar.isHidden = false
@@ -66,6 +60,12 @@ class CharacterDetailVC: UIViewController {
     
     
     private func bindViewModel() {
+        characterVM.isFetchingCharacterDetail.subscribe(onNext: { [weak self] isFetching in
+            guard let self = self else { return }
+            
+            loadingView.isHidden = !isFetching
+        }).disposed(by: disposeBag)
+        
         characterVM.characterDetail.subscribe(onNext: { [weak self] data in
             guard let self = self, let character = data else { return }
             let imageUrl = URL(string: character.image)
@@ -103,8 +103,6 @@ class CharacterDetailVC: UIViewController {
     
     
     private func configureUI() {
-//        view.addSubview(loadingView)
-        
         [genderIcon, locationIcon, originIcon].forEach {
             $0.tintColor = Colors.text
         }
@@ -139,12 +137,14 @@ class CharacterDetailVC: UIViewController {
                 }
             }
         }
+        
+        view.addSubview(loadingView)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-//        loadingView.pin.all()
+        loadingView.pin.all()
         view.flex.layout()
     }
 }
