@@ -7,6 +7,7 @@
 
 import UIKit
 import FlexLayout
+import PinLayout
 
 class LoadingView: UIView {
     let indicator = UIActivityIndicatorView(style: .large)
@@ -15,6 +16,7 @@ class LoadingView: UIView {
         super.init(frame: frame)
         
         indicator.startAnimating()
+        
         flex.backgroundColor(Colors.background).alignItems(.center).justifyContent(.center).define { flex in
             flex.addItem(indicator)
         }

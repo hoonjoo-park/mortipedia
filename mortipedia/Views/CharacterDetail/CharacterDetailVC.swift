@@ -27,13 +27,13 @@ class CharacterDetailVC: UIViewController {
     private let locationLabel = MortyLabel(fontSize: 16, weight: .medium, color: Colors.text)
     private let originIcon = UIImageView(image: UIImage(named: "origin")?.withRenderingMode(.alwaysTemplate))
     private let originLabel = MortyLabel(fontSize: 16, weight: .medium, color: Colors.text)
+    private let loadingView = LoadingView(frame: .zero)
 
     init(characterId: Int) {
         self.characterId = characterId
         
         super.init(nibName: nil, bundle: nil)
         
-        characterVM.clearCharacterDetail(id: characterId)
         characterVM.fetchCharacterDetail(id: characterId)
     }
     
@@ -49,6 +49,13 @@ class CharacterDetailVC: UIViewController {
         configureViewController()
         bindViewModel()
         configureUI()
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        characterVM.clearCharacterDetail(id: characterId)
     }
     
     
@@ -96,6 +103,8 @@ class CharacterDetailVC: UIViewController {
     
     
     private func configureUI() {
+//        view.addSubview(loadingView)
+        
         [genderIcon, locationIcon, originIcon].forEach {
             $0.tintColor = Colors.text
         }
@@ -135,6 +144,7 @@ class CharacterDetailVC: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+//        loadingView.pin.all()
         view.flex.layout()
     }
 }
