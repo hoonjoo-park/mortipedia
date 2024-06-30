@@ -9,6 +9,7 @@ class EpisodesVC: UIViewController {
     private let disposeBag = DisposeBag()
     
     private let rootFlexContainer = UIView()
+    private let loadingView = LoadingView(frame: .zero)
     private var episodesCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -26,6 +27,8 @@ class EpisodesVC: UIViewController {
         
         rootFlexContainer.pin.all()
         rootFlexContainer.flex.layout()
+        
+        loadingView.pin.all()
     }
     
     
@@ -60,11 +63,19 @@ class EpisodesVC: UIViewController {
             .subscribe(onNext: { [weak self] _ in
                 self?.episodeVM.getNextEpisodes()
             }).disposed(by: disposeBag)
+        
+        
+        episodeVM.isLoading.subscribe(onNext: {[weak self] isLoading in
+            guard let self = self else { return }
+            
+            loadingView.isHidden = !isLoading
+        }).disposed(by: disposeBag)
     }
     
     
     private func configureUI() {
         view.addSubview(rootFlexContainer)
+        view.addSubview(loadingView)
         view.backgroundColor = Colors.background
         
         rootFlexContainer.flex.define { flex in
