@@ -10,6 +10,7 @@ class SettingsVC: UIViewController {
         super.viewDidLoad()
         
         configureViewController()
+        configureTableView()
         configureUI()
     }
     
@@ -26,6 +27,11 @@ class SettingsVC: UIViewController {
         view.backgroundColor = Colors.background
         navigationItem.title = "Settings"
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    
+    private func configureTableView() {
+        // TODO: UITableView 세팅
     }
     
     
